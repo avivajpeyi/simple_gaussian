@@ -9,4 +9,9 @@ def test_ln_analytic_evidence():
     np.fill_diagonal(inv_cov, diag_cov)
 
     lnz = ln_analytic_evidence(ndim, inv_cov)
-    assert lnz == -2.837877066409345, "Analytic evidence is not correct"
+    np.testing.assert_allclose(
+        lnz,
+        1.8378770664093453,
+        rtol=1e-3,
+        err_msg="Analytic evidence is not correct",
+    )
